@@ -1,7 +1,7 @@
 window.onload = () => {
     console.log("로딩되었음")
 }
-
+rontend_base.url = 'http://127.0.0.1:8000/'
 async function handleSignin() {
     const email = document.getElementById("email").value
     const password = document.getElementById("password").value
@@ -60,3 +60,11 @@ function handleLogout(){
     localStorage.removeItem("refresh")
     localStorage.removeItem("payload")
     }
+
+
+function Detail(article_id){
+    console.log(article_id)
+    const url = `${frontend_base.url}/article_detail.html?id=${article_id}`
+    lacation.hef=url
+
+}
