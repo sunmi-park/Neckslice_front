@@ -5,7 +5,7 @@ window.onload = () => {
 var xhr = new XMLHttpRequest();
 
 //요청을 보낼 방식, 주소, 비동기여부 설정
-xhr.open("GET", "http://127.0.0.1:8000/movie/genre/액션/", true);
+xhr.open("GET", "http://127.0.0.1:8000/movie/", true);
 
 //요청 전송
 xhr.send();

@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="/detail.js"></script>
     <title>Document</title>
     <style>
       @import url("https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap");
@@ -365,6 +366,26 @@
       ></video>
       <img src="https://i.imgur.com/yzr8fQz.png" alt="close" class="close" />
     </div>
+    <div>
+      <div class="mb-3">
+        <input
+          class="comment__group__input"
+          type="text"
+          name="content"
+          id="content"
+          required="true"
+        />
+        <label class="form-label">댓글 내용</label>
+      </div>
+      <button
+        type="button"
+        onclick="handleComment()"
+        class="btn btn-outline-primary btn-sm"
+        id="comment-create-btn"
+      >
+        댓글 작성
+      </button>
+    </div>
 
     <script>
       let $ = document;
@@ -382,6 +403,37 @@
 
       playBtn.addEventListener("click", toggleVideo);
       closeBtn.addEventListener("click", toggleVideo);
+
+      //   <!-- {
+      //     const commentCreateBtn = document.querySelector("#comment-create-btn");
+      //     commentCreateBtn.addEventListener("click", function () {
+      //       // 새 댓글 객체 생성
+      //       const comment = {
+      //         body: document.querySelector("#new-comment-body").value,
+      //         comment_id: document.querySelector("#new-comment-article-id").value,
+      //       };
+      //       console.log(comment);
+      //       // fetch() - Talend API 요청을 JavaScript로 보내준다!
+      //       const url = "localhost" + comment.comment_id + "/comments";
+      //       fetch(url, {
+      //         method: "post", // POST 요청을 보낸다.
+      //         body: JSON.stringify(comment), // comment JS 객체를 JSON으로 변경하여 보냄
+      //         headers: {
+      //           "Content-Type": "application/json",
+      //         },
+      //       }).then((response) => {
+      //         // http 응답 코드에 따른 메세지 출력
+      //         const msg = response.ok
+      //           ? "댓글이 등록 되었습니다."
+      //           : "댓글 등록 실패..!";
+      //         alert(msg);
+      //         // 현재 페이지 새로고침
+      //         window.location.reload();
+      //       });
+      //     });
+      //   }
+      //
     </script>
+    <script src="/detail.js"></script>
   </body>
 </html>
