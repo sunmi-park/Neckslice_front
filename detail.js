@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 var xhr = new XMLHttpRequest();
 //요청을 보낼 방식, 주소, 비동기여부 설정
 xhr.open("GET", "http://127.0.0.1:8000/movie", true);
@@ -36,7 +35,7 @@ async function postComment() {
 
   console.log(response);
 }
-=======
+
 
 // async function loadArticle(){
 //     articles = await getElementById()
@@ -61,4 +60,4 @@ async function postComment() {
         const url = `${frontend_base_url}/detail.html?id=${movie_id}`
         location.href= url
     }
->>>>>>> 9f4b1d52b544cfbf37b6d1732987944473d1135b
+
