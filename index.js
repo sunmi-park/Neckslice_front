@@ -21,3 +21,64 @@ xhr.onload = () => {
     console.log("통신 실패");
   }
 };
+
+// window.onload = () => {
+//   console.log("로딩되었음");
+// };
+
+// var xhr = new XMLHttpRequest();
+
+// //요청을 보낼 방식, 주소, 비동기여부 설정
+// xhr.open("GET", "http://127.0.0.1:8000/movie/genre/액션/", true);
+
+// //요청 전송
+// xhr.send();
+
+// //통신후 작업
+// xhr.onload = () => {
+//   //통신 성공
+//   if (xhr.status == 200) {
+//     console.log(xhr.response);
+//     console.log("통신 성공");
+//   } else {
+//     //통신 실패
+//     console.log("통신 실패");
+//   }
+// };
+
+$(document).ready(function () {
+  $("#cards-boxss").empty();
+  $.ajax({
+    type: "GET",
+    url: "http://127.0.0.1:8000/movie/genre/액션/", //사용자가 가져온 API를 넣으세요
+    data: {},
+    success: function (response) {
+      let article = response;
+      for (let i = 0; i < 6; i++) {
+        let title = article[i]["title"];
+        let comment = article[i]["release_date"];
+        let image_url = article[i]["poster_path"];
+        let movie_url = article[i]["adult"];
+        let desc = article[i]["overview"];
+
+        let temp_html = `<div class="card">
+                            <img
+                                class="card-img-top"
+                                src="https://image.tmdb.org/t/p/w200${image_url}"
+                                alt="Card image cap"
+                            />
+                            <div class="card-body">
+                                <a href="${movie_url}"
+                                > ${title}</a
+                                >
+                                <p class="card-text">
+                                </p>
+                                <p class="card-text comment">개봉일: ${comment}</p>
+                            </div>
+                        </div>`;
+
+        $("#cards-boxss").append(temp_html);
+      }
+    },
+  });
+});

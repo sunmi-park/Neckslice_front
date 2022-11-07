@@ -366,26 +366,28 @@
       ></video>
       <img src="https://i.imgur.com/yzr8fQz.png" alt="close" class="close" />
     </div>
-    <div>
-      <div class="mb-3">
-        <input
-          class="comment__group__input"
-          type="text"
-          name="content"
-          id="content"
-          required="true"
-        />
-        <label class="form-label">댓글 내용</label>
+    <form>
+      <div id="comment_section">
+        <div class="mb-3">
+          <input
+            class="content"
+            type="text"
+            name="content"
+            id="comment_content"
+            required="true"
+          />
+          <label class="form-label">댓글 내용</label>
+        </div>
+        <button
+          type="button"
+          onclick="postComment()"
+          class="btn btn-outline-primary btn-sm"
+          id="comment_button"
+        >
+          댓글 작성
+        </button>
       </div>
-      <button
-        type="button"
-        onclick="handleComment()"
-        class="btn btn-outline-primary btn-sm"
-        id="comment-create-btn"
-      >
-        댓글 작성
-      </button>
-    </div>
+    </form>
 
     <script>
       let $ = document;

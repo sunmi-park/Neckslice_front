@@ -21,7 +21,7 @@ window.onload = () => {
   console.log("로딩되었음");
 };
 
-app.get("http://127.0.0.1:8000/movie/:movie_pk", (request, response) => {
+app.get("http://127.0.0.1:8000/movie/`${movie_pk}`", (request, response) => {
   const movie = movies.find((movie) => movie.id === Number(request.params.id));
   if (!movie) {
     return res.status(404).send("영화 정보를 찾을 수 없습니다");
@@ -29,19 +29,9 @@ app.get("http://127.0.0.1:8000/movie/:movie_pk", (request, response) => {
   res.status(200).send(movie);
 });
 
-async function handleComment() {
-  const content = document.querySelector("content").value;
-  console.log(content);
-
-  const response = await fetch("http://127.0.0.1:8000/movie/comment/", {
-    headers: {
-      "content-type": "application/json",
-    },
-    method: "POST",
-    body: JSON.stringify({
-      content: content,
-    }),
-  });
+async function postComment() {
+  const comment_content = document.getElementById("comment_content");
+  const comment = await postComment(comment_content.value);
 
   console.log(response);
 }
