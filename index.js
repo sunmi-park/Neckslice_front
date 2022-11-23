@@ -36,7 +36,7 @@ $(document).ready(function () {
       let image_url = article[i]["poster_path"];
 
       let temp_html = `<div class="card">
-                            <a href = '#'>
+                            <a href = 'http://127.0.0.1:5500/front/detail.html'>
                             <img
                                 class="card-img-top"
                                 src="https://image.tmdb.org/t/p/w200${image_url}"
@@ -66,9 +66,9 @@ $(document).ready(function () {
     for (let i = 0; i < 6; i++) {
       let title = article[i]["title"];
       let image_url = article[i]["poster_path"];
-
+      
       let temp_html = `<div class="card">
-                            <a href = '#'>
+                          <a href = "http://127.0.0.1:5500/front/detail.html">
                             <img
                                 class="card-img-top"
                                 src="https://image.tmdb.org/t/p/w200${image_url}"
@@ -100,26 +100,57 @@ $(document).ready(function () {
     for (let i = 0; i < 6; i++) {
       let title = article[i]["title"];
       let image_url = article[i]["poster_path"];
+      let movie_id = article[i]["id"];
 
-      let temp_html = `<div class="card">
-                            <a href = '#'>
-                            <img
-                                class="card-img-top"
-                                src="https://image.tmdb.org/t/p/w200${image_url}"
-                                alt="${title}"/>
-                                </a>
+      let element_card = document.createElement("div"); 
+        element_card.setAttribute("class", "card");
+      
 
-                            <div class="card-body">
-                                  
-                                  ${title}
-                            </div>
-                        </div>`;
+      let link = document.createElement("a");
+        // link.setAttribute("href", "여기에 주소 넣으세요");
+      let img = document.createElement("img");
+        img.setAttribute("class", "card-img-top");
+        let img_src = "https://image.tmdb.org/t/p/w200" + image_url;
+        img.setAttribute("src", img_src);
+        img.setAttribute("alt", title);
+      link.appendChild(img);
+      
+      let element_card_body = document.createElement("div");
+        element_card_body.setAttribute("class", "card_body");
+        let card_body_title = document.createTextNode(title);
+      element_card_body.appendChild(card_body_title);
+      
 
-      $("#cards-action").append(temp_html);
+      element_card.appendChild(link);
+      element_card.appendChild(element_card_body);
+      $("#cards-boxss").append(element_card);
+
+      element_card.setAttribute("onclick", "articleDetail(this.id)");
     }
   },
   });
 });
+
+//       let temp_html = `<div class="card">
+//                             <a href = 'http://127.0.0.1:5500/front/detail.html'></a>
+//                             <img
+//                                 onmouseup="window.open('http://127.0.0.1:5500/front/detail.html')"
+//                                 class="card-img-top"
+//                                 src="https://image.tmdb.org/t/p/w200${image_url}"
+//                                 alt="${title}"/>
+                                
+
+//                             <div class="card-body">
+                                  
+//                                   ${title}
+//                             </div>
+//                         </div>`;
+
+//       $("#cards-action").append(temp_html);
+//     }
+//   },
+//   });
+// });
 
 
 
@@ -136,7 +167,7 @@ $(document).ready(function () {
       let image_url = article[i]["poster_path"];
 
       let temp_html = `<div class="card">
-                            <a href = '#'>
+                            <a href = 'http://127.0.0.1:5500/front/detail.html'>
                             <img
                                 class="card-img-top"
                                 src="https://image.tmdb.org/t/p/w200${image_url}"

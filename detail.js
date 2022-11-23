@@ -21,20 +21,20 @@ window.onload = () => {
   console.log("로딩되었음");
 };
 
-app.get("http://127.0.0.1:8000/movie/`${movie_pk}`", (request, response) => {
-  const movie = movies.find((movie) => movie.id === Number(request.params.id));
-  if (!movie) {
-    return res.status(404).send("영화 정보를 찾을 수 없습니다");
-  }
-  res.status(200).send(movie);
-});
+// app.get("http://127.0.0.1:8000/movie/`${movie_pk}`", (request, response) => {
+//   const movie = movies.find((movie) => movie.id === Number(request.params.id));
+//   if (!movie) {
+//     return res.status(404).send("영화 정보를 찾을 수 없습니다");
+//   }
+//   res.status(200).send(movie);
+// });
 
-async function postComment() {
-  const comment_content = document.getElementById("comment_content");
-  const comment = await postComment(comment_content.value);
+// async function postComment() {
+//   const comment_content = document.getElementById("comment_content");
+//   const comment = await postComment(comment_content.value);
 
-  console.log(response);
-}
+//   console.log(response);
+// }
 
 
 // async function loadArticle(){

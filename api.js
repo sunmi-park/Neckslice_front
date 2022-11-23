@@ -58,6 +58,7 @@ async function handleLogin() {
 }
 
 function handleLogout() {
+  window.location.href='login.html';
   localStorage.removeItem("access");
   localStorage.removeItem("refresh");
   localStorage.removeItem("payload");
@@ -242,5 +243,12 @@ function Detail(article_id){
     console.log(article_id)
     const url = `${frontend_base.url}/article_detail.html?id=${article_id}`
     lacation.hef=url
+
+}
+
+
+async function getDetail(){
+    const response = await fetch(`${backend_base_url}/1/<int:movie_pk>/`)
+
 
 }
